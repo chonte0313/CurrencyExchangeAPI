@@ -2,6 +2,8 @@
 
 CurrencyExchangeAPI is a simple and efficient API for converting currencies. Built with Python, this API provides easy access to currency conversion rates and allows for quick conversions between different currencies.
 
+This repository retrieves data from https://pypi.org/project/CurrencyConverter/
+
 ## Features
 
 - Retrieve a list of all available currencies.
@@ -55,7 +57,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
 
 Contact
 
