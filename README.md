@@ -55,6 +55,11 @@ Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+Sources
+
+CurrencyConverter: https://pypi.org/project/CurrencyConverter/
+European Central Bank: https://www.ecb.europa.eu/home/html/index.en.html
+
 License
 
 This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
