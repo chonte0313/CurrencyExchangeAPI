@@ -37,38 +37,29 @@ This repository retrieves data from https://pypi.org/project/CurrencyConverter/
 **Examples:**
 
 1. Get the latest exchange rates for a specific currency:
-'''
+```
 GET https://currencyexchangeapi-cs01.onrender.com/latest/USD
-'''
-2. Convert from one currency to another:
+```
+3. Convert from one currency to another:
 
-'''
+```
 GET https://currencyexchangeapi-cs01.onrender.com/latest/USD?target=EUR
-'''
+```
 
 3. Convert a specific amount from one currency to another:
-'''
+```
 GET https://currencyexchangeapi-cs01.onrender.com/latest/USD?target=EUR&amount=100
-'''
+```
 
-Contributing
+### Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-Sources
+### Sources
 
-CurrencyConverter: https://pypi.org/project/CurrencyConverter/
-European Central Bank: https://www.ecb.europa.eu/home/html/index.en.html
+- **CurrencyConverter:** `https://pypi.org/project/CurrencyConverter/`
+- **European Central Bank:** `https://www.ecb.europa.eu/home/html/index.en.html`
 
-License
+### License
 
 This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
-
-Contact
-
-For any inquiries or feedback, please contact Jung Tae Cha (chonte0313).
-
-python
-Copy code
-
-You can adjust the "username" in the GitHub repository URL and any other details as necessary.
