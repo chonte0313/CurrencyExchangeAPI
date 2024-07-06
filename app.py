@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 from currency_converter import CurrencyConverter, RateNotFoundError
-
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -75,6 +75,78 @@ def getLatestConversion(currency):
         "rates" : data
     }    
     return value, 200
+
+@app.route("/<thisdate>/<currency>")
+def getConversion(thisdate,currency): 
+    c = CurrencyConverter()
+    data = []
+    amount = 1
+    otheramount = request.args.get("amount")
+    if otheramount : 
+        amount = float(otheramount)
+    extra = request.args.get("target")
+    date = datetime.strptime(thisdate, "%Y-%m-%d")
+    print(date)
+    if extra : 
+        try: 
+                    
+            a = c.convert(amount, currency, extra, date = date) 
+
+            t = {
+                "target" : extra,
+                "amount" : a
+            }
+            value = {
+                "amount" : amount,
+                "updated_at" : thisdate,
+                "rate" : t
+            }    
+            return value, 200
+        except RateNotFoundError:
+            print(extra + " rate not found")
+            t = {
+                "target" : extra,
+                "amount" : 0,
+                "error" : "Rate not found on database"
+            }
+            value = {
+                "amount" : amount,
+                "updated_at" : thisdate,
+                "rate" : t
+            }    
+            return value, 200
+
+    else :     
+        for i in c.currencies : 
+            if i != currency:
+                try: 
+                    
+                    a = c.convert(amount, currency, i, date = date)
+
+                    t = {
+                        "target" : i,
+                        "amount" : a
+                    }
+                    data.append(t)
+                except RateNotFoundError:
+                    print(i + " rate not found")
+                    t = {
+                        "target" : i,
+                        "amount" : 0,
+                        "error" : "Rate not found on database"
+                    }
+
+                    data.append(t)
+
+    data.sort(key=lambda x: x["target"])
+    value = {
+        "amount" : amount,
+        "updated_at" : thisdate,
+        "rates" : data
+    }    
+    return value, 200
+
+
 
 
 
