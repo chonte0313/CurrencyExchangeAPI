@@ -8,6 +8,7 @@ CurrencyExchangeAPI is a simple and efficient API for converting currencies. Bui
 - Retrieve a list of all available currencies.
 - Convert amounts from one currency to another.
 - Get the latest exchange rates for a specific currency.
+- Get historical exchange rates for a specific date and currency.
 
 ## Endpoints
 
@@ -50,6 +51,29 @@ GET https://currencyexchangeapi-cs01.onrender.com/latest/USD?target=EUR
 GET https://currencyexchangeapi-cs01.onrender.com/latest/USD?target=EUR&amount=100
 ```
 
+### Get Historical Exchange Rates
+
+**URL:** `https://currencyexchangeapi-cs01.onrender.com/<thisdate>/<currency>`
+
+**Method:** GET
+
+**Description:** Get historical exchange rates for a specific date and currency. Optionally, convert a specific amount from the source currency to the target currency on that date.
+
+**Parameters:**
+
+- `thisdate` (required): The date in `YYYY-MM-DD` format.
+- `currency` (required): The source currency code.
+- `target` (optional): The target currency code. If not provided, rates for all available currencies will be returned.
+- `amount` (optional): The amount to convert. If not provided, the default amount will be 1.
+
+**Examples:**
+
+1. Get historical exchange rates for a specific date and currency:
+   ```GET https://currencyexchangeapi-cs01.onrender.com/2023-02-01/USD```
+
+2. Convert a specific amount from one currency to another on a specific date:
+   ```GET https://currencyexchangeapi-cs01.onrender.com/2023-02-01/USD?target=EUR&amount=100```
+   
 ### Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
