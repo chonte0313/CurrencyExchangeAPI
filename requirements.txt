@@ -14,4 +14,4 @@ packaging==24.1
 requests==2.32.3
 simplejson==3.19.2
 urllib3==2.2.2
-Werkzeug==3.0.3
+Werkzeug==3.0.6
